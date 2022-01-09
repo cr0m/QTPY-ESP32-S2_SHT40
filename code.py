@@ -1,14 +1,10 @@
 import time
 import board
 import adafruit_sht4x
-
-# For wifi
-import ipaddress
 import ssl
 import wifi
 import socketpool
 import adafruit_requests
-import busio
 
 POST_URL = "http://192.168.9.15:8086/write?db=TempHumid"
 
@@ -29,7 +25,6 @@ wifi.radio.connect(secrets["ssid"], secrets["password"])
 while True:
     temperature, relative_humidity = sht.measurements
     tempF = temperature * 9 / 5 + 32
-
     temp_data = "temperature,host=SHT40,room=roaming value=%s" % tempF
     humid_data = "humidity,host=SHT40,room=roaming value=%s" % relative_humidity
     temp_request = requests.post(POST_URL, data=temp_data)
