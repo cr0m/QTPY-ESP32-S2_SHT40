@@ -1,0 +1,2 @@
+# QTPY-ESP32-S2_SHT40
+QTPY-ESP32-S2 with SHT40 sensor
